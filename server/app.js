@@ -1,6 +1,6 @@
-// server/app.js - BHYT Express API v4.3
+// server/app.js - BHYT Express API v4.4 (Multi-year & Year Transition)
 'use strict';
-require('dotenv').config();
+// dotenv loaded via resolved path below
 const express = require('express');
 const cors    = require('cors');
 const bcrypt  = require('bcryptjs');
@@ -9,6 +9,7 @@ const pool    = require('./db');
 const { sign, requireAuth, requireAdmin } = require('./auth');
 const { sendMail, mailApproved, mailReturned } = require('./mailer');
 
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 const app = express();
 const NAM = parseInt(process.env.NAM || '2026');
 
@@ -36,6 +37,7 @@ async function runMigrations() {
   try {
     const cols = [
       ['users',      'link', "VARCHAR(500) DEFAULT ''"],
+      ['users',      'drive_links_by_year', 'JSON NULL'],
       ['don_vi_cfg', 'cv',   "VARCHAR(100) DEFAULT ''"],
       ['don_vi_cfg', 'sdt',  "VARCHAR(20)  DEFAULT ''"],
       ['bienban',    'note',           'TEXT NULL'],
@@ -73,7 +75,18 @@ async function runMigrations() {
       locked_at  DATETIME DEFAULT CURRENT_TIMESTAMP,
       UNIQUE KEY uk_quy_nam (quy, nam)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4`);
-    console.log('[migration] quy_lock ready');
+    await pool.execute(`CREATE TABLE IF NOT EXISTS quy_chot (
+      id         INT AUTO_INCREMENT PRIMARY KEY,
+      quy        ENUM('I','II','III','IV') NOT NULL,
+      nam        SMALLINT NOT NULL,
+      xa         VARCHAR(100) NOT NULL,
+      muc_I      BIGINT DEFAULT 0,
+      muc_II     BIGINT DEFAULT 0,
+      chot_by    VARCHAR(50) DEFAULT '',
+      chot_at    DATETIME DEFAULT CURRENT_TIMESTAMP,
+      UNIQUE KEY uk_quy_nam_xa (quy, nam, xa)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4`);
+    console.log('[migration] quy_lock & quy_chot ready');
     console.log('[migration] thong_bao_cap ready');
     console.log('[migration] done');
   } catch(e) { console.error('[migration] fatal (non-crash):', e.message); }
@@ -86,6 +99,19 @@ setTimeout(function() {
     console.error('[migration] unhandled (non-crash):', e.message);
   });
 }, 3000);
+
+// ── API CONFIG (năm làm việc & danh sách năm) ────────────────────────────────
+app.get('/api/config', async (req, res) => {
+  const sysYear = new Date().getFullYear();
+  const baseNam = parseInt(process.env.NAM || String(sysYear));
+  const yearSet = new Set([baseNam - 1, baseNam, baseNam + 1, sysYear]);
+  try {
+    const [rows] = await pool.execute('SELECT DISTINCT nam FROM bienban ORDER BY nam');
+    rows.forEach(r => { if (r.nam) yearSet.add(parseInt(r.nam)); });
+  } catch (e) {}
+  const years = Array.from(yearSet).filter(y => y >= 2020 && y <= 2100).sort((a, b) => a - b);
+  res.json({ defaultNam: baseNam, currentYear: sysYear, years });
+});
 
 // ── API DEBUG (dùng /api/debug để không bị static file chặn) ────────────────
 app.get('/api/debug', async (req, res) => {
@@ -181,44 +207,94 @@ app.put('/api/users/:username/toggle', requireAdmin, async (req, res) => {
   } catch(e) { res.status(500).json({ error: e.message }); }
 });
 
-// PUT /api/users/:username/link — admin gán link Drive cho xã
+function resolveDriveLink(row, nam) {
+  if (!row) return '';
+  let byYear = {};
+  try {
+    byYear = typeof row.drive_links_by_year === 'string'
+      ? JSON.parse(row.drive_links_by_year || '{}')
+      : (row.drive_links_by_year || {});
+  } catch (e) { byYear = {}; }
+  const yKey = String(nam || NAM);
+  if (Object.prototype.hasOwnProperty.call(byYear, yKey)) {
+    return byYear[yKey] || '';
+  }
+  return row.link || '';
+}
+
+// PUT /api/users/:username/link — admin gán link Drive cho xã (hỗ trợ theo năm)
 app.put('/api/users/:username/link', requireAdmin, async (req, res) => {
   try {
-    const { link } = req.body || {};
-    const [r] = await pool.execute("UPDATE users SET link=? WHERE username=? AND role='xa'", [link || '', req.params.username]);
-    if (r.affectedRows === 0) return res.status(404).json({ error: 'Khong tim thay tai khoan xa' });
+    const { link, nam } = req.body || {};
+    const targetNam = String(parseInt(nam || NAM));
+    const [rows] = await pool.execute("SELECT id, link, drive_links_by_year FROM users WHERE username=? AND role='xa'", [req.params.username]);
+    if (!rows[0]) return res.status(404).json({ error: 'Khong tim thay tai khoan xa' });
+    let byYear = {};
+    try {
+      byYear = typeof rows[0].drive_links_by_year === 'string'
+        ? JSON.parse(rows[0].drive_links_by_year || '{}')
+        : (rows[0].drive_links_by_year || {});
+    } catch (e) { byYear = {}; }
+    if (rows[0].link && !byYear[String(NAM)]) {
+      byYear[String(NAM)] = rows[0].link;
+    }
+    byYear[targetNam] = (link || '').trim();
+    const keepLegacy = targetNam === String(NAM) ? (link || '').trim() : (rows[0].link || '');
+    await pool.execute(
+      "UPDATE users SET link=?, drive_links_by_year=? WHERE id=?",
+      [keepLegacy, JSON.stringify(byYear), rows[0].id]
+    );
     res.json({ ok: true });
   } catch(e) { res.status(500).json({ error: e.message }); }
 });
 
-// POST /api/users/links-bulk — admin gán link hàng loạt
+// POST /api/users/links-bulk — admin gán link hàng loạt theo năm
 app.post('/api/users/links-bulk', requireAdmin, async (req, res) => {
   try {
-    const { links } = req.body || {};
+    const { links, nam } = req.body || {};
+    const targetNam = String(parseInt(nam || NAM));
     if (!Array.isArray(links)) return res.status(400).json({ error: 'links phai la array' });
     let updated = 0;
     for (const item of links) {
       if (!item.xa) continue;
-      const [r] = await pool.execute("UPDATE users SET link=? WHERE xa=? AND role='xa'", [item.link || '', item.xa]);
-      if (r.affectedRows > 0) updated++;
+      const [rows] = await pool.execute("SELECT id, link, drive_links_by_year FROM users WHERE xa=? AND role='xa'", [item.xa]);
+      if (!rows[0]) continue;
+      let byYear = {};
+      try {
+        byYear = typeof rows[0].drive_links_by_year === 'string'
+          ? JSON.parse(rows[0].drive_links_by_year || '{}')
+          : (rows[0].drive_links_by_year || {});
+      } catch (e) { byYear = {}; }
+      if (rows[0].link && !byYear[String(NAM)]) {
+        byYear[String(NAM)] = rows[0].link;
+      }
+      byYear[targetNam] = (item.link || '').trim();
+      const keepLegacy = targetNam === String(NAM) ? (item.link || '').trim() : (rows[0].link || '');
+      await pool.execute(
+        "UPDATE users SET link=?, drive_links_by_year=? WHERE id=?",
+        [keepLegacy, JSON.stringify(byYear), rows[0].id]
+      );
+      updated++;
     }
     res.json({ ok: true, updated });
   } catch(e) { res.status(500).json({ error: e.message }); }
 });
 
-// GET /api/users/all-links — tất cả link (admin)
+// GET /api/users/all-links — tất cả link (admin / bhxh, theo năm)
 app.get('/api/users/all-links', requireViewer, async (req, res) => {
   try {
-    const [rows] = await pool.execute("SELECT username,name,xa,link FROM users WHERE role='xa' ORDER BY xa");
-    res.json(rows.map(r => ({ ...r, link: r.link || '' })));
+    const targetNam = parseInt(req.query.nam || NAM);
+    const [rows] = await pool.execute("SELECT username,name,xa,link,drive_links_by_year FROM users WHERE role='xa' ORDER BY xa");
+    res.json(rows.map(r => ({ username: r.username, name: r.name, xa: r.xa, link: resolveDriveLink(r, targetNam) })));
   } catch(e) { res.status(500).json({ error: e.message }); }
 });
 
-// GET /api/mylink — xã lấy link của mình
+// GET /api/mylink — xã lấy link của mình theo năm
 app.get('/api/mylink', requireAuth, async (req, res) => {
   try {
-    const [rows] = await pool.execute('SELECT link FROM users WHERE id=?', [req.user.id]);
-    res.json({ link: rows[0]?.link || '' });
+    const targetNam = parseInt(req.query.nam || NAM);
+    const [rows] = await pool.execute('SELECT link, drive_links_by_year FROM users WHERE id=?', [req.user.id]);
+    res.json({ link: resolveDriveLink(rows[0], targetNam) });
   } catch(e) { res.status(500).json({ error: e.message }); }
 });
 
@@ -434,6 +510,21 @@ app.post('/api/admin/unlock-quy', requireAdmin, async (req, res) => {
       [quy, parseInt(nam), req.user.username]
     );
     res.json({ ok: true });
+  } catch(e) { res.status(500).json({ error: e.message }); }
+});
+
+// Khóa / Mở khóa đồng loạt cả 4 Quý của 1 năm (dùng khi chốt sổ cuối năm)
+app.post('/api/admin/lock-year', requireAdmin, async (req, res) => {
+  try {
+    const { nam = NAM, locked = true } = req.body || {};
+    const lockVal = locked ? 1 : 0;
+    for (const q of ['I', 'II', 'III', 'IV']) {
+      await pool.execute(
+        'INSERT INTO quy_lock (quy,nam,locked,locked_by,locked_at) VALUES (?,?,?,?,NOW()) ON DUPLICATE KEY UPDATE locked=VALUES(locked), locked_by=VALUES(locked_by), locked_at=NOW()',
+        [q, parseInt(nam), lockVal, req.user.username]
+      );
+    }
+    res.json({ ok: true, nam: parseInt(nam), locked: !!lockVal });
   } catch(e) { res.status(500).json({ error: e.message }); }
 });
 

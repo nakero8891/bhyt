@@ -1,3 +1,5 @@
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 // server/auth.js - Middleware xác thực JWT
 'use strict';
 const jwt = require('jsonwebtoken');

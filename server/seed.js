@@ -2,7 +2,8 @@
 // Chạy bằng: /usr/local/bin/node server/seed.js
 // Hoặc dùng cPanel > Setup Node.js App > Run Script
 'use strict';
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 const bcrypt = require('bcryptjs');
 const pool   = require('./db');
 
