@@ -170,7 +170,7 @@ textarea:focus{border-color:var(--blue)}
 <div class="ls visible" id="LS">
   <div class="lg"></div>
 <div class="lb">
-  <div class="ll">SNV-BHYT v4.0 — 2026</div>
+  <div class="ll" id="loginVerLabel">SNV-BHYT v4.2 — Đa năm</div>
   <div class="lt">Hệ thống Biên bản BHYT</div>
   <div class="ls2">Sở Nội vụ tỉnh Sơn La — Người có công</div>
 
@@ -197,7 +197,20 @@ textarea:focus{border-color:var(--blue)}
 <div class="app" id="APP">
   <div class="topbar">
     <div class="logo">SNV<span>·</span>BHYT</div>
-    <span class="topbar-badge">2026</span>
+    <span class="topbar-badge" id="topbarNamBadge" title="Phiên làm việc hiện tại theo Quý / Năm">Phiên: Quý — / —</span>
+    <div style="display:flex;align-items:center;gap:6px;margin-left:8px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:3px 8px">
+      <span style="font-size:11px;color:var(--text2);font-weight:500">Năm:</span>
+      <select id="globalNamSelect" onchange="setGlobalNam(this.value)" style="background:transparent;border:none;color:var(--blue);font-weight:600;font-size:12px;cursor:pointer;outline:none"></select>
+      <span style="color:var(--border2)">|</span>
+      <span style="font-size:11px;color:var(--text2);font-weight:500">Quý:</span>
+      <select id="globalQuySelect" onchange="setGlobalQuy(this.value)" style="background:transparent;border:none;color:var(--green);font-weight:600;font-size:12px;cursor:pointer;outline:none">
+        <option value="I">Quý I</option>
+        <option value="II">Quý II</option>
+        <option value="III">Quý III</option>
+        <option value="IV">Quý IV</option>
+      </select>
+    </div>
+    <div id="topbarClock" style="display:flex;align-items:center;gap:6px;margin-left:6px;font-family:var(--mono);font-size:11px;color:var(--text2);background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:var(--r);padding:3px 10px" title="Thời gian thực hệ thống">🕒 —</div>
     <div style="flex:1"></div>
     <div class="user-info">
       <div class="avatar" id="uav">A</div>
@@ -231,6 +244,29 @@ textarea:focus{border-color:var(--blue)}
     <div class="mtt">📤 Xác nhận gửi biên bản cả Quý</div>
     <div id="moSendContent"></div>
     <div class="mf"><button class="btn btn-g" onclick="cm('moSend')">Kiểm tra lại</button><button class="btn btn-p" id="moSendBtn" onclick="doSend()">✓ Gửi toàn bộ Quý</button></div>
+  </div>
+</div>
+
+<!-- Modal kết chuyển số liệu chuyển tiếp năm -->
+<div class="mo" id="moCarryOver">
+  <div class="mb" style="max-width:520px">
+    <div class="mtt" id="moCOTitle">🔄 Kết chuyển số liệu chuyển tiếp năm</div>
+    <div id="moCODesc" style="font-size:12.5px;color:var(--text2);line-height:1.5;margin-bottom:12px"></div>
+    <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:10px 12px;margin-bottom:12px">
+      <div style="font-size:11.5px;font-weight:600;color:var(--text);margin-bottom:8px">Chọn phương thức kết chuyển kinh phí NSNN đầu năm:</div>
+      <label style="display:flex;align-items:flex-start;gap:8px;font-size:12px;margin-bottom:8px;cursor:pointer">
+        <input type="radio" name="coFinanceMode" value="carry" checked style="margin-top:2px">
+        <span><strong>Chuyển tiếp cả số thẻ &amp; số dư NSNN:</strong><br><span style="color:var(--text2)">Thẻ đầu kỳ T1 = Cuối kỳ T12 năm trước; T.trước c/sang T1 = NSNN phải đóng T12 năm trước.</span></span>
+      </label>
+      <label style="display:flex;align-items:flex-start;gap:8px;font-size:12px;cursor:pointer">
+        <input type="radio" name="coFinanceMode" value="reset_zero" style="margin-top:2px">
+        <span><strong>Chỉ chuyển tiếp số thẻ (đã quyết toán dứt điểm NSNN năm cũ):</strong><br><span style="color:var(--text2)">Thẻ đầu kỳ T1 = Cuối kỳ T12 năm trước; đặt T.trước c/sang T1 = 0 đồng.</span></span>
+      </label>
+    </div>
+    <div class="mf">
+      <button class="btn btn-g" onclick="cm('moCarryOver')">Hủy</button>
+      <button class="btn btn-p" id="moCOConfirmBtn">✓ Thực hiện kết chuyển</button>
+    </div>
   </div>
 </div>
 
@@ -275,9 +311,146 @@ textarea:focus{border-color:var(--blue)}
 <script>
 
 // ═══════════════════════════════════════════════════════
-// BHYT SỞ NỘI VỤ SƠN LA — v4.1 Production
+// BHYT SỞ NỘI VỤ SƠN LA — v4.2 Multi-Year Production
 // ═══════════════════════════════════════════════════════
-const NAM = 2026;
+function getCurrentQuarterInfo() {
+  const now = new Date();
+  const y = now.getFullYear();
+  const m = now.getMonth() + 1;
+  const q = m <= 3 ? 'I' : (m <= 6 ? 'II' : (m <= 9 ? 'III' : 'IV'));
+  return { year: y, month: m, quy: q };
+}
+
+const _INIT_TIME = getCurrentQuarterInfo();
+let NAM = _INIT_TIME.year;
+let SYS_YEARS = [NAM - 1, NAM, NAM + 1];
+
+function updateTopbarClock() {
+  const el = document.getElementById('topbarClock');
+  if (!el) return;
+  const now = new Date();
+  const dd = String(now.getDate()).padStart(2, '0');
+  const mm = String(now.getMonth() + 1).padStart(2, '0');
+  const yyyy = now.getFullYear();
+  const hh = String(now.getHours()).padStart(2, '0');
+  const mi = String(now.getMinutes()).padStart(2, '0');
+  const ss = String(now.getSeconds()).padStart(2, '0');
+  const curQ = getCurrentQuarterInfo().quy;
+  el.innerHTML = '🕒 ' + hh + ':' + mi + ':' + ss + ' · ' + dd + '/' + mm + '/' + yyyy + ' <span style="color:var(--blue)">(Hiện tại: Quý ' + curQ + '/' + yyyy + ')</span>';
+}
+setInterval(updateTopbarClock, 1000);
+
+function applyCurrentTimeSession() {
+  const info = getCurrentQuarterInfo();
+  NAM = info.year;
+  DASH_NAM = info.year;
+  DASH_Q = info.quy;
+  if (typeof XS !== 'undefined' && XS) {
+    XS.q = info.quy;
+    XS.am = info.month;
+  }
+  window._pdcPeriod = info.quy;
+  syncYearSelectors();
+  updateTopbarClock();
+}
+
+function syncYearSelectors() {
+  const activeQ = (CU && CU.role === 'xa' && typeof XS !== 'undefined' && XS.q) ? XS.q : (DASH_Q || _INIT_TIME.quy);
+  const badge = document.getElementById('topbarNamBadge');
+  if (badge) badge.textContent = 'Phiên: Quý ' + activeQ + ' / ' + NAM;
+  const sel = document.getElementById('globalNamSelect');
+  if (sel) {
+    const yearSet = new Set([...SYS_YEARS, NAM - 1, NAM, NAM + 1]);
+    const sorted = Array.from(yearSet).sort((a, b) => a - b);
+    sel.innerHTML = sorted.map(y => '<option value="' + y + '"' + (y === NAM ? ' selected' : '') + '>' + y + '</option>').join('');
+  }
+  const qSel = document.getElementById('globalQuySelect');
+  if (qSel) {
+    qSel.value = activeQ;
+  }
+  const xqs = document.getElementById('xqs');
+  if (xqs) {
+    const curQ = (typeof XS !== 'undefined' && XS.q) ? XS.q : activeQ;
+    xqs.innerHTML = QS.map(q => '<option value="' + q + ' / ' + NAM + '"' + (q === curQ ? ' selected' : '') + '>Quý ' + q + ' / ' + NAM + '</option>').join('');
+  }
+  const rpq = document.getElementById('rpq');
+  if (rpq) rpq.value = activeQ;
+  const rpnam = document.getElementById('rpnam');
+  if (rpnam) rpnam.value = String(NAM);
+  const capNam = document.getElementById('capNam');
+  if (capNam) capNam.value = String(NAM);
+  const bcapNam = document.getElementById('bcapNam');
+  if (bcapNam) bcapNam.value = String(NAM);
+}
+
+async function initSystemConfig() {
+  applyCurrentTimeSession();
+  try {
+    const cfg = await fetch('/api/config').then(r => r.json());
+    if (Array.isArray(cfg.years) && cfg.years.length) {
+      SYS_YEARS = cfg.years;
+    }
+  } catch (e) {}
+  syncYearSelectors();
+}
+
+function setGlobalQuy(newQ) {
+  if (!QS.includes(newQ)) return;
+  DASH_Q = newQ;
+  window._pdcPeriod = newQ;
+  if (typeof XS !== 'undefined' && XS) {
+    XS.q = newQ;
+    const curM = new Date().getMonth() + 1;
+    XS.am = QM[newQ].includes(curM) ? curM : QM[newQ][0];
+  }
+  syncYearSelectors();
+  if (!CU) return;
+  const activePage = document.querySelector('.page.active')?.id || '';
+  if (CU.role === 'admin') {
+    if (activePage === 'p-dash') loadDash();
+    else if (activePage === 'p-dcprov') loadProvinceDCPage();
+    else if (activePage === 'p-rpt') {
+      const rpq = document.getElementById('rpq');
+      if (rpq) rpq.value = newQ;
+    }
+  } else if (CU.role === 'bhxh') {
+    if (activePage === 'p-bdash') loadDashBHXH();
+    else if (activePage === 'p-bdc') loadBDCPage();
+  } else {
+    if (activePage === 'p-xn') {
+      const xqs = document.getElementById('xqs');
+      if (xqs) xqs.value = newQ + ' / ' + NAM;
+      onQC();
+    }
+  }
+}
+
+function setGlobalNam(newNam) {
+  const y = parseInt(newNam);
+  if (!y || y < 2020 || y > 2100) return;
+  NAM = y;
+  DASH_NAM = y;
+  syncYearSelectors();
+  if (!CU) return;
+  const activePage = document.querySelector('.page.active')?.id || '';
+  if (CU.role === 'admin') {
+    if (activePage === 'p-dash') loadDash();
+    else if (activePage === 'p-cap') loadCapTable();
+    else if (activePage === 'p-rpt') {
+      const rp = document.getElementById('rpnam');
+      if (rp) rp.value = String(y);
+    } else if (activePage === 'p-lk') loadLinkPage();
+    else if (activePage === 'p-dcprov') loadProvinceDCPage();
+  } else if (CU.role === 'bhxh') {
+    if (activePage === 'p-bdash') loadDashBHXH();
+    else if (activePage === 'p-bcap') loadBCapTable();
+    else if (activePage === 'p-bdc') loadBDCPage();
+  } else {
+    loadXH();
+    if (activePage === 'p-xn') { syncYearSelectors(); onQC(); }
+    else if (activePage === 'p-xst') loadXStPage();
+  }
+}
 const XL=['Chiềng An','Chiềng Cơi','Chiềng Sinh','Tô Hiệu','Chiềng La','Mường Chiên','Mường Giôn','Mường Khiêng','Quỳnh Nhai','Mường Sại','Bình Thuận','Muổi Nọi','Thuận Châu','Nậm Lầu','Co Mạ','Mường É','Long Hẹ','Mường Bám','Chiềng Hoa','Chiềng Lao','Mường Bú','Mường La','Ngọc Chiến','Bắc Yên','Tạ Khoa','Tà Xùa','Xím Vàng','Pắc Ngà','Gia Phù','Mường Bang','Mường Cơi','Phù Yên','Tân Phong','Tường Hạ','Kim Bon','Suối Tọ','Mộc Châu','Mộc Sơn','Thảo Nguyên','Vân Sơn','Chiềng Sơn','Đoàn Kết','Lóng Sập','Song Khủa','Tân Yên','Tô Múa','Vân Hồ','Xuân Nha','Lóng Phiêng','Phiêng Khoài','Yên Châu','Yên Sơn','Chiềng Hặc','Chiềng Sại','Chiềng Mai','Chiềng Mung','Chiềng Sung','Mai Sơn','Mường Chanh','Phiêng Pằn','Tà Hộc','Phiêng Cằm','Chiềng Khoong','Chiềng Khương','Chiềng Sơ','Mường Hung','Mường Lầm','Nậm Ty','Sông Mã','Bó Sinh','Huổi Một','Púng Bánh','Sốp Cộp','Mường Lạn','Mường Lèo'];
 const OBJ=[
   {c:'I',  l:'Đối tượng quy định tại các điểm e, i và k khoản 3 Điều 12 của Luật Bảo hiểm y tế',t:'s',s:'I'},
@@ -345,7 +518,7 @@ function handleSessionExpired(){
 }
 
 // ═══ AUTH ═══
-let CU = null, PK = null, DASH_Q = 'II', DASH_FILTER = null, DASH_NAM = new Date().getFullYear();
+let CU = null, PK = null, DASH_Q = _INIT_TIME.quy, DASH_FILTER = null, DASH_NAM = _INIT_TIME.year;
 // Tự động đăng nhập nếu có token trong localStorage
 async function autoLogin() {
   const token = getToken();
@@ -428,7 +601,7 @@ document.addEventListener('DOMContentLoaded', function(){
   document.getElementById('lp').addEventListener('keydown', function(e){
     if(e.key === 'Enter') login();
   });
-    autoLogin();
+    initSystemConfig().then(() => autoLogin());
 });
 
 // Kiểm tra token định kỳ mỗi 5 phút — phát hiện hết hạn ngay cả khi user không thao tác
@@ -472,6 +645,7 @@ function doChangePw(){
 
 // ═══ BUILD UI ═══
 function buildUI(){
+  applyCurrentTimeSession();
   const isA = CU.role === 'admin';
   const isBHXH = CU.role === 'bhxh';
   
@@ -483,6 +657,7 @@ function buildUI(){
       <div class="sb-sec">Xử lý</div>
       <div class="sb-sec">Kinh phí</div>
       <div class="nav-item" onclick="sp('cap')" id="nav-cap"><span class="ni">💰</span>Kinh phí NCC &amp; ĐBXH</div>
+      <div class="nav-item" onclick="sp('dcprov')" id="nav-dcprov"><span class="ni">⇌</span>Đối chiếu KP toàn tỉnh</div>
       <div class="sb-sec">Báo cáo</div>
       <div class="nav-item" onclick="sp('rpt')" id="nav-rpt"><span class="ni">▤</span>Tổng hợp Quý</div>
       <div class="sb-sec">Hệ thống</div>
@@ -499,7 +674,7 @@ function buildUI(){
       <div class="nav-item active" onclick="sp('bdash')" id="nav-bdash"><span class="ni">⊞</span>Bảng điều khiển</div>
       <div class="sb-sec">Kinh phí</div>
       <div class="nav-item" onclick="sp('bcap')" id="nav-bcap"><span class="ni">💰</span>Kinh phí NCC &amp; ĐBXH</div>
-      <div class="nav-item" onclick="sp('bdc')" id="nav-bdc"><span class="ni">⇌</span>Đối chiếu KP</div>
+      <div class="nav-item" onclick="sp('bdc')" id="nav-bdc"><span class="ni">⇌</span>Đối chiếu KP toàn tỉnh</div>
     `;
     bBHXHP(); sp('bdash');
   }
@@ -527,6 +702,7 @@ function sp(id){
   if(id==='dv'   && CU && CU.role==='admin') loadDonViPage();
   if(id==='lk'   && CU && CU.role==='admin') loadLinkPage();
   if(id==='cap'  && CU && CU.role==='admin') loadCapPage();
+  if(id==='dcprov' && CU && CU.role==='admin') loadProvinceDCPage();
   // BHXH handlers
   if(id==='bdash'&& CU && CU.role==='bhxh') loadDashBHXH();
   if(id==='bcap' && CU && CU.role==='bhxh') loadBCapPage();
@@ -547,7 +723,16 @@ async function loadDashBHXH(){
   const q=DASH_Q;
   el.innerHTML='<div style="padding:48px;text-align:center;color:var(--text2)">⏳ Đang tải...</div>';
   try {
-    const allBB=await api('GET','/api/bienban/all?quy='+q+'&nam='+DASH_NAM);
+    const [allBB, dcRaw]=await Promise.all([
+      api('GET','/api/bienban/all?quy='+q+'&nam='+DASH_NAM),
+      api('GET','/api/cap/doichieu?nam='+DASH_NAM).catch(()=>({cap:[],bienban:[]}))
+    ]);
+    window._lastProvinceDC = { nam: DASH_NAM, data: dcRaw };
+    const dcSummaryQ = buildProvinceDCSummary(dcRaw, q);
+    const dcDiffCnt = dcSummaryQ.filter(x => x.status === 'diff').length;
+    const bhxhDcBadge = dcDiffCnt > 0
+      ? '<span class="badge red" style="margin-left:6px">' + dcDiffCnt + ' xã lệch</span>'
+      : '<span class="badge green" style="margin-left:6px">✓ Khớp hết</span>';
     const bbMap={}; allBB.forEach(r=>{bbMap[r.xa]=r;});
     const pend=allBB.filter(r=>r.st==='pending').length;
     const appr=allBB.filter(r=>r.st==='approved').length;
@@ -577,10 +762,15 @@ async function loadDashBHXH(){
           ${[DASH_NAM-1,DASH_NAM,DASH_NAM+1].map(y=>`<option value="${y}"${y===DASH_NAM?' selected':''}>${y}</option>`).join('')}
         </select>
         <label>Quý:</label>
-        ${QS.map(qq=>'<button class="dash-q-btn '+(qq===q?'act':'')+'" onclick="DASH_Q=\''+qq+'\';loadDashBHXH()">'+qq+'</button>').join('')}
+        ${QS.map(qq=>'<button class="dash-q-btn '+(qq===q?'act':'')+'" onclick="DASH_Q=\''+qq+'\';syncYearSelectors();loadDashBHXH()">'+qq+'</button>').join('')}
         <span class="dash-time">Cập nhật: ${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()}</span>
         <button class="btn btn-g" style="font-size:11px;margin-left:8px" onclick="loadDashBHXH()">↻ Làm mới</button>
       </div>
+      <div class="tbar" style="margin-bottom:16px;background:var(--bg2);border-radius:var(--r2) var(--r2) 0 0;padding:0 12px">
+        <button class="tbn active" id="bdashTabBtn-bb" onclick="switchBDashSubTab('bb')">⬡ Tiến độ biên bản (${XL.length} xã)</button>
+        <button class="tbn" id="bdashTabBtn-dc" onclick="switchBDashSubTab('dc')">⇌ Đối chiếu kinh phí toàn tỉnh ${bhxhDcBadge}</button>
+      </div>
+      <div id="bdashPane-bb">
       <div class="sg">
         <div class="sc" style="cursor:pointer" onclick="toggleDashFilter('none');loadDashBHXH()"><div class="sl2">Chưa gửi${DASH_FILTER==='none'?' 🔍':''}</div><div class="sv red">${ns}</div></div>
         <div class="sc" style="cursor:pointer" onclick="toggleDashFilter('pending');loadDashBHXH()"><div class="sl2">Chờ xác nhận${DASH_FILTER==='pending'?' 🔍':''}</div><div class="sv yellow">${pend}</div></div>
@@ -597,8 +787,24 @@ async function loadDashBHXH(){
         </div>
         <div class="xg">${grid}</div>
       </div>
-      <div class="card"><div class="ct">⏳ Chờ xác nhận — Quý ${q}/${DASH_NAM}</div>${pendHtml}</div>`;
+      <div class="card"><div class="ct">⏳ Chờ xác nhận — Quý ${q}/${DASH_NAM}</div>${pendHtml}</div>
+      </div>
+      <div id="bdashPane-dc" style="display:none"></div>`;
+    renderProvinceDCWidget(document.getElementById('bdashPane-dc'), { nam: DASH_NAM, period: q });
+    if (window._bdashSubTab === 'dc') switchBDashSubTab('dc');
   } catch(e){ el.innerHTML='<div class="al d">Lỗi: '+e.message+'</div>'; }
+}
+
+function switchBDashSubTab(tab) {
+  window._bdashSubTab = tab;
+  const b1 = document.getElementById('bdashTabBtn-bb');
+  const b2 = document.getElementById('bdashTabBtn-dc');
+  const p1 = document.getElementById('bdashPane-bb');
+  const p2 = document.getElementById('bdashPane-dc');
+  if (b1) b1.classList.toggle('active', tab === 'bb');
+  if (b2) b2.classList.toggle('active', tab === 'dc');
+  if (p1) p1.style.display = tab === 'bb' ? 'block' : 'none';
+  if (p2) p2.style.display = tab === 'dc' ? 'block' : 'none';
 }
 
 async function loadBCapPage(){
@@ -622,17 +828,18 @@ async function loadBCapPage(){
 
 async function loadBDCPage(){
   const el=document.getElementById('p-bdc'); if(!el) return;
-  el.innerHTML='<div class="pt">Đối chiếu kinh phí <span style="font-size:12px;color:var(--text3);font-weight:400">(Chỉ xem)</span></div>'
-    +'<div class="ps">So sánh Sở thông báo cấp với KP đã cấp trong biên bản — Năm '+DASH_NAM+'</div>'
-    +'<div class="card" style="margin-bottom:12px"><div style="display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap">'
-    +'<div><label style="font-size:11px;color:var(--text2);display:block;margin-bottom:4px">Xã/Phường</label>'
-    +'<select id="bdcXa" class="ti" style="width:220px">'
-    +'<option value="">— Chọn xã/phường —</option>'
-    +XL.map(xa=>`<option value="${xa}">${xa}</option>`).join('')
-    +'</select></div>'
-    +'<button class="btn btn-w" onclick="loadBDCData()">🔍 Xem đối chiếu</button>'
-    +'</div></div>'
-    +'<div id="bdcContent"><div style="padding:20px;color:var(--text2);text-align:center">Chọn xã/phường để xem đối chiếu.</div></div>';
+  const period = window._pdcPeriod || DASH_Q || _INIT_TIME.quy;
+  el.innerHTML='<div class="pt">Đối chiếu kinh phí toàn tỉnh <span style="font-size:12px;color:var(--text3);font-weight:400">(Chỉ xem — BHXH tỉnh)</span></div>'
+    +'<div class="ps">So sánh kinh phí Sở đã thông báo cấp với KP đã cấp trong biên bản của '+XL.length+' xã/phường — Năm '+DASH_NAM+'</div>'
+    +'<div id="bdcProvinceWrap"><div style="padding:36px;text-align:center;color:var(--text2)">⏳ Đang tải số liệu đối chiếu toàn tỉnh...</div></div>';
+  try {
+    const dcRaw = await api('GET', '/api/cap/doichieu?nam=' + DASH_NAM);
+    window._lastProvinceDC = { nam: DASH_NAM, data: dcRaw };
+    renderProvinceDCWidget(document.getElementById('bdcProvinceWrap'), { nam: DASH_NAM, period });
+  } catch (e) {
+    const w = document.getElementById('bdcProvinceWrap');
+    if (w) w.innerHTML = '<div class="al d">Lỗi tải đối chiếu toàn tỉnh: ' + e.message + '</div>';
+  }
 }
 
 async function loadBDCData(){
@@ -648,12 +855,13 @@ function bAP(){
     <div class="page" id="p-rpt">${rRpt()}</div>
     <div class="page" id="p-dv"></div>
     <div class="page" id="p-lk"></div>
-    <div class="page" id="p-cap"></div>`;
+    <div class="page" id="p-cap"></div>
+    <div class="page" id="p-dcprov"></div>`;
   loadDash();
 }
 
-function setDashQ(q){ DASH_Q = q; loadDash(); }
-function setDashNam(n){ DASH_NAM = parseInt(n)||new Date().getFullYear(); loadDash(); }
+function setDashQ(q){ DASH_Q = q; syncYearSelectors(); loadDash(); }
+function setDashNam(n){ setGlobalNam(n); }
 function toggleDashFilter(f){ DASH_FILTER = (DASH_FILTER===f) ? null : f; loadDash(); }
 
 async function loadDash(){
@@ -662,7 +870,16 @@ async function loadDash(){
   if(!el) return;
   el.innerHTML = '<div style="padding:48px;text-align:center;color:var(--text2)">⏳ Đang tải...</div>';
   try {
-    const allBB = await api('GET', '/api/bienban/all?quy='+q+'&nam='+DASH_NAM);
+    const [allBB, dcRaw] = await Promise.all([
+      api('GET', '/api/bienban/all?quy='+q+'&nam='+DASH_NAM),
+      api('GET', '/api/cap/doichieu?nam='+DASH_NAM).catch(() => ({ cap: [], bienban: [] }))
+    ]);
+    window._lastProvinceDC = { nam: DASH_NAM, data: dcRaw };
+    const dcSummaryQ = buildProvinceDCSummary(dcRaw, q);
+    const dcDiffCnt = dcSummaryQ.filter(x => x.status === 'diff').length;
+    const dcBadgeHtml = dcDiffCnt > 0
+      ? '<span class="badge red" style="margin-left:6px">' + dcDiffCnt + ' xã lệch</span>'
+      : '<span class="badge green" style="margin-left:6px">✓ Khớp hết</span>';
     const bbMap = {}; allBB.forEach(r => { bbMap[r.xa] = r; });
     const pend = allBB.filter(r=>r.st==='pending').length;
     const appr = allBB.filter(r=>r.st==='approved').length;
@@ -712,6 +929,11 @@ const pendHtml = !pendRows.length
         <button class="btn btn-g" style="font-size:11px;margin-left:8px" onclick="loadDash()">↻ Làm mới</button>
          <button class="btn btn-s" style="font-size:11px" onclick="exportDashboardXlsx()">📊 Xuất Excel</button>
       </div>
+      <div class="tbar" style="margin-bottom:16px;background:var(--bg2);border-radius:var(--r2) var(--r2) 0 0;padding:0 12px">
+        <button class="tbn active" id="dashTabBtn-bb" onclick="switchDashSubTab('bb')">⬡ Tiến độ biên bản (${XL.length} xã)</button>
+        <button class="tbn" id="dashTabBtn-dc" onclick="switchDashSubTab('dc')">⇌ Đối chiếu kinh phí toàn tỉnh ${dcBadgeHtml}</button>
+      </div>
+      <div id="dashPane-bb">
       <div class="sg">
         <div class="sc" style="cursor:pointer" onclick="toggleDashFilter('none')" title="Bấm để lọc"><div class="sl2">Chưa gửi ${DASH_FILTER==='none'?'🔍':''}</div><div class="sv red">${ns}</div><div style="font-size:11px;color:var(--text3);margin-top:2px">${XL.length} xã/phường</div></div>
         <div class="sc" style="cursor:pointer" onclick="toggleDashFilter('pending')" title="Bấm để lọc"><div class="sl2">Chờ xác nhận ${DASH_FILTER==='pending'?'🔍':''}</div><div class="sv yellow">${pend}</div></div>
@@ -724,10 +946,316 @@ const pendHtml = !pendRows.length
       </div>
       <div class="card"><div class="ct" style="display:flex;justify-content:space-between;align-items:center"><span>⬡ Trạng thái ${XL.length} xã — Quý ${q}/${DASH_NAM}${DASH_FILTER?` <span style="font-size:11px;color:var(--yellow)">🔍 Đang lọc: ${DASH_FILTER==="none"?"Chưa gửi":DASH_FILTER==="pending"?"Chờ xác nhận":DASH_FILTER==="approved"?"Đã xác nhận":DASH_FILTER==="draft"?"Bản nháp":"Sở trả về"}</span>`:""}</span>${DASH_FILTER?'<button class="btn btn-w" style="font-size:11px" onclick="toggleDashFilter(null)">✕ Bỏ lọc</button>':""}</div><div class="xg">${grid}</div></div>
       <div class="card"><div class="ct">⏳ Chờ xác nhận — Quý ${q}/${DASH_NAM}</div>${pendHtml}</div>
-      <div class="card"><div class="ct">🔐 Khóa chỉnh sửa theo Quý — Năm ${DASH_NAM}</div>
-        <div style="font-size:12px;color:var(--text2);margin-bottom:10px">Khi khóa, các xã/phường không thể lưu nháp, gửi hoặc thu hồi biên bản của quý đó. Sở vẫn duyệt/trả về bình thường.</div>
-        <div class="xg">${lockCards}</div></div>`;
+      <div class="card">
+        <div class="ct" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+          <span>🔐 Khóa chỉnh sửa theo Quý — Năm ${DASH_NAM}</span>
+          <div style="display:flex;gap:6px">
+            <button class="btn btn-d" style="font-size:11px" onclick="toggleYearLock(true)">🔒 Khóa cả năm ${DASH_NAM}</button>
+            <button class="btn btn-s" style="font-size:11px" onclick="toggleYearLock(false)">🔓 Mở cả năm ${DASH_NAM}</button>
+          </div>
+        </div>
+        <div style="font-size:12px;color:var(--text2);margin-bottom:10px">Khi khóa, các xã/phường không thể lưu nháp, gửi hoặc thu hồi biên bản của quý đó. Dùng nút "Khóa cả năm" khi hoàn tất quyết toán cuối năm.</div>
+        <div class="xg">${lockCards}</div></div>
+      </div>
+      <div id="dashPane-dc" style="display:none"></div>`;
+    renderProvinceDCWidget(document.getElementById('dashPane-dc'), { nam: DASH_NAM, period: q, embedded: true });
+    if (window._dashSubTab === 'dc') switchDashSubTab('dc');
   } catch(e){ el.innerHTML = '<div class="al d">Lỗi: '+e.message+'</div>'; }
+}
+
+function switchDashSubTab(tab) {
+  window._dashSubTab = tab;
+  const b1 = document.getElementById('dashTabBtn-bb');
+  const b2 = document.getElementById('dashTabBtn-dc');
+  const p1 = document.getElementById('dashPane-bb');
+  const p2 = document.getElementById('dashPane-dc');
+  if (b1) b1.classList.toggle('active', tab === 'bb');
+  if (b2) b2.classList.toggle('active', tab === 'dc');
+  if (p1) p1.style.display = tab === 'bb' ? 'block' : 'none';
+  if (p2) p2.style.display = tab === 'dc' ? 'block' : 'none';
+}
+
+function buildProvinceDCSummary(dcRaw, period) {
+  const targetMonths = period === 'ALL'
+    ? [1,2,3,4,5,6,7,8,9,10,11,12]
+    : (QM[period] || [1,2,3]);
+  const capMap = {}, bbMap = {};
+  (dcRaw?.cap || []).forEach(r => {
+    if (!targetMonths.includes(parseInt(r.thang))) return;
+    if (!capMap[r.xa]) capMap[r.xa] = { capI: 0, capII: 0 };
+    capMap[r.xa].capI  += parseInt(r.muc_I)  || 0;
+    capMap[r.xa].capII += parseInt(r.muc_II) || 0;
+  });
+  (dcRaw?.bienban || []).forEach(r => {
+    if (!targetMonths.includes(parseInt(r.thang))) return;
+    if (!bbMap[r.xa]) bbMap[r.xa] = { bbI: 0, bbII: 0 };
+    bbMap[r.xa].bbI  += parseInt(r.bb_mucI)  || 0;
+    bbMap[r.xa].bbII += parseInt(r.bb_mucII) || 0;
+  });
+  return XL.map(xa => {
+    const c = capMap[xa] || { capI: 0, capII: 0 };
+    const b = bbMap[xa]  || { bbI: 0, bbII: 0 };
+    const diffI  = b.bbI  - c.capI;
+    const diffII = b.bbII - c.capII;
+    const hasData = (c.capI + b.bbI + c.capII + b.bbII) > 0;
+    const status = !hasData ? 'none' : (diffI === 0 && diffII === 0 ? 'ok' : 'diff');
+    return { xa, capI: c.capI, bbI: b.bbI, diffI, capII: c.capII, bbII: b.bbII, diffII, status };
+  });
+}
+
+window._pdcFilter = 'all';
+window._pdcSortDiff = true;
+window._pdcPeriod = null;
+
+async function loadProvinceDCPage() {
+  const el = document.getElementById('p-dcprov');
+  if (!el) return;
+  const period = window._pdcPeriod || DASH_Q || 'II';
+  el.innerHTML = '<div class="pt">Đối chiếu kinh phí toàn tỉnh</div>'
+    + '<div class="ps">So sánh kinh phí Sở đã thông báo cấp với kinh phí đã cấp trong biên bản của ' + XL.length + ' xã/phường — Năm ' + DASH_NAM + '</div>'
+    + '<div id="pdcStandaloneWrap"><div style="padding:36px;text-align:center;color:var(--text2)">⏳ Đang tải số liệu đối chiếu toàn tỉnh...</div></div>';
+  try {
+    const dcRaw = await api('GET', '/api/cap/doichieu?nam=' + DASH_NAM);
+    window._lastProvinceDC = { nam: DASH_NAM, data: dcRaw };
+    renderProvinceDCWidget(document.getElementById('pdcStandaloneWrap'), { nam: DASH_NAM, period, embedded: false });
+  } catch (e) {
+    const w = document.getElementById('pdcStandaloneWrap');
+    if (w) w.innerHTML = '<div class="al d">Lỗi tải đối chiếu toàn tỉnh: ' + e.message + '</div>';
+  }
+}
+
+function renderProvinceDCWidget(container, opts) {
+  if (!container) return;
+  const nam = opts.nam || DASH_NAM;
+  const period = opts.period || 'II';
+  const embedded = !!opts.embedded;
+  const dcRaw = (window._lastProvinceDC && window._lastProvinceDC.nam === nam)
+    ? window._lastProvinceDC.data
+    : { cap: [], bienban: [] };
+
+  const summaries = buildProvinceDCSummary(dcRaw, period);
+  const cntOk   = summaries.filter(x => x.status === 'ok').length;
+  const cntDiff = summaries.filter(x => x.status === 'diff').length;
+  const cntNone = summaries.filter(x => x.status === 'none').length;
+
+  const periodLabel = period === 'ALL' ? ('Cả năm ' + nam) : ('Quý ' + period + '/' + nam);
+  const periodOpts = [
+    ...QS.map(q => '<option value="' + q + '"' + (period === q ? ' selected' : '') + '>Quý ' + q + '/' + nam + '</option>'),
+    '<option value="ALL"' + (period === 'ALL' ? ' selected' : '') + '>Lũy kế cả năm ' + nam + '</option>'
+  ].join('');
+
+  container.innerHTML = `
+    <div class="sg" style="grid-template-columns:repeat(4,1fr);margin-bottom:16px">
+      <div class="sc" style="cursor:pointer;${window._pdcFilter==='all'?'border-color:var(--blue)':''}" onclick="setPDCFilter('all','${container.id}')">
+        <div class="sl2">Tổng đơn vị</div><div class="sv blue">${XL.length}</div>
+        <div style="font-size:11px;color:var(--text3);margin-top:2px">${periodLabel}</div>
+      </div>
+      <div class="sc" style="cursor:pointer;${window._pdcFilter==='ok'?'border-color:var(--green)':''}" onclick="setPDCFilter('ok','${container.id}')">
+        <div class="sl2">✓ Đã khớp 100%</div><div class="sv green">${cntOk}</div>
+        <div style="font-size:11px;color:var(--text3);margin-top:2px">${Math.round(cntOk/XL.length*100)}% đơn vị khớp</div>
+      </div>
+      <div class="sc" style="cursor:pointer;${window._pdcFilter==='diff'?'border-color:var(--red)':''}" onclick="setPDCFilter('diff','${container.id}')">
+        <div class="sl2">⚠ Có chênh lệch</div><div class="sv red">${cntDiff}</div>
+        <div style="font-size:11px;color:var(--text3);margin-top:2px">Bấm để lọc xã bị lệch</div>
+      </div>
+      <div class="sc" style="cursor:pointer;${window._pdcFilter==='none'?'border-color:var(--text2)':''}" onclick="setPDCFilter('none','${container.id}')">
+        <div class="sl2">— Chưa có dữ liệu</div><div class="sv" style="color:var(--text2)">${cntNone}</div>
+        <div style="font-size:11px;color:var(--text3);margin-top:2px">Chưa nhập TB cấp hoặc BB</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="ct" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+        <span>⇌ Bảng đối chiếu kinh phí toàn tỉnh — ${periodLabel}</span>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <select class="ti" style="width:155px" onchange="changePDCPeriod(this.value,'${container.id}')">${periodOpts}</select>
+          <input class="si pdc-search" style="width:190px" placeholder="🔍 Tìm xã/phường..." oninput="filterPDCTableRows('${container.id}')">
+          <button class="btn btn-g" style="font-size:11px" onclick="togglePDCSort('${container.id}')">${window._pdcSortDiff ? '⇅ Xã lệch lên đầu' : '⇅ Thứ tự A–Z'}</button>
+          <button class="btn btn-s" style="font-size:11px" onclick="exportProvinceDCXlsx('${period}',${nam})">📥 Xuất Excel toàn tỉnh</button>
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--text2);margin-bottom:10px;padding:7px 10px;background:var(--bg3);border-radius:var(--r)">
+        <span style="color:var(--green)">🟢 Sở TB cấp</span> vs <span style="color:var(--blue)">🔵 BB đã cấp</span> |
+        <strong>Chênh lệch = BB đã cấp − Sở TB cấp</strong> (<span style="color:var(--red)">+ thừa</span> / <span style="color:var(--yellow)">− thiếu</span>). Bấm vào dòng xã bất kỳ để xem chi tiết 12 tháng.
+      </div>
+      <div class="tw" style="max-height:560px">
+        <table style="font-size:11.5px;border-collapse:collapse;width:100%">
+          <thead>
+            <tr>
+              <th rowspan="2" style="width:42px;text-align:center">STT</th>
+              <th rowspan="2" style="text-align:left;min-width:160px">Xã / Phường</th>
+              <th colspan="3" style="background:rgba(88,166,255,.16);color:var(--blue);text-align:center">Mục I — Nguồn ưu đãi NCC (đ)</th>
+              <th colspan="3" style="background:rgba(63,185,80,.15);color:var(--green);text-align:center">Mục II — Nguồn ĐBXH (đ)</th>
+              <th rowspan="2" style="text-align:center;min-width:135px">Trạng thái</th>
+            </tr>
+            <tr>
+              <th style="text-align:center">🟢 Sở TB cấp</th>
+              <th style="text-align:center">🔵 BB đã cấp</th>
+              <th style="text-align:center">Chênh lệch</th>
+              <th style="text-align:center">🟢 Sở TB cấp</th>
+              <th style="text-align:center">🔵 BB đã cấp</th>
+              <th style="text-align:center">Chênh lệch</th>
+            </tr>
+          </thead>
+          <tbody class="pdc-tbody"></tbody>
+        </table>
+      </div>
+    </div>`;
+
+  window._pdcCurrentSummaries = summaries;
+  window._pdcCurrentPeriod = period;
+  window._pdcCurrentNam = nam;
+  filterPDCTableRows(container.id);
+}
+
+function setPDCFilter(f, targetId) {
+  window._pdcFilter = f;
+  const target = document.getElementById(targetId);
+  renderProvinceDCWidget(target, { nam: window._pdcCurrentNam || DASH_NAM, period: window._pdcCurrentPeriod || DASH_Q });
+}
+
+function togglePDCSort(targetId) {
+  window._pdcSortDiff = !window._pdcSortDiff;
+  const target = document.getElementById(targetId);
+  renderProvinceDCWidget(target, { nam: window._pdcCurrentNam || DASH_NAM, period: window._pdcCurrentPeriod || DASH_Q });
+}
+
+function changePDCPeriod(newPeriod, targetId) {
+  window._pdcPeriod = newPeriod;
+  const target = document.getElementById(targetId);
+  renderProvinceDCWidget(target, { nam: window._pdcCurrentNam || DASH_NAM, period: newPeriod });
+}
+
+function filterPDCTableRows(targetId) {
+  const root = document.getElementById(targetId);
+  const tbody = root ? root.querySelector('.pdc-tbody') : document.querySelector('.pdc-tbody');
+  if (!tbody) return;
+  const searchEl = root ? root.querySelector('.pdc-search') : document.querySelector('.pdc-search');
+  const qSearch = (searchEl?.value || '').trim().toLowerCase();
+  const summaries = window._pdcCurrentSummaries || [];
+  let rows = summaries.filter(r => {
+    if (window._pdcFilter !== 'all' && r.status !== window._pdcFilter) return false;
+    if (qSearch && !r.xa.toLowerCase().includes(qSearch)) return false;
+    return true;
+  });
+  if (window._pdcSortDiff) {
+    const rank = { diff: 0, ok: 1, none: 2 };
+    rows = [...rows].sort((a, b) => rank[a.status] - rank[b.status]);
+  }
+
+  let totCapI = 0, totBBI = 0, totDiffI = 0, totCapII = 0, totBBII = 0, totDiffII = 0;
+  rows.forEach(r => {
+    totCapI += r.capI; totBBI += r.bbI; totDiffI += r.diffI;
+    totCapII += r.capII; totBBII += r.bbII; totDiffII += r.diffII;
+  });
+
+  const fmtD = (v, has) => {
+    if (!has) return '<span class="m3">—</span>';
+    if (v === 0) return '<span style="color:var(--green)">0</span>';
+    if (v > 0) return '<span style="color:var(--red);font-weight:600">+' + vnd(v) + '</span>';
+    return '<span style="color:var(--yellow);font-weight:600">' + vnd(v) + '</span>';
+  };
+  const badgeHtml = r => {
+    if (r.status === 'none') return '<span class="badge gray">Chưa đối chiếu</span>';
+    if (r.status === 'ok') return '<span class="badge green">✓ Khớp 100%</span>';
+    return (r.diffI + r.diffII) > 0
+      ? '<span class="badge red">▲ Thừa KP</span>'
+      : '<span class="badge yellow">▼ Thiếu KP</span>';
+  };
+
+  let h = '<tr style="background:var(--bg4);font-weight:700;border-bottom:2px solid var(--blue)">'
+    + '<td colspan="2" style="text-align:right">TỔNG CỘNG (' + rows.length + ' xã)</td>'
+    + '<td class="r" style="color:var(--green)">' + vnd(totCapI) + '</td>'
+    + '<td class="r" style="color:var(--blue)">' + vnd(totBBI) + '</td>'
+    + '<td class="r">' + fmtD(totDiffI, true) + '</td>'
+    + '<td class="r" style="color:var(--green)">' + vnd(totCapII) + '</td>'
+    + '<td class="r" style="color:var(--blue)">' + vnd(totBBII) + '</td>'
+    + '<td class="r">' + fmtD(totDiffII, true) + '</td>'
+    + '<td class="c">—</td></tr>';
+
+  rows.forEach((r, idx) => {
+    const has = r.status !== 'none';
+    const qForModal = (window._pdcCurrentPeriod && QS.includes(window._pdcCurrentPeriod)) ? window._pdcCurrentPeriod : (DASH_Q || 'II');
+    h += '<tr style="cursor:pointer" data-xa="' + escapeHtml(r.xa) + '" data-q="' + qForModal + '" onclick="openXaDCDetailModal(this.dataset.xa,this.dataset.q)">'
+      + '<td class="c mno m3">' + (idx + 1) + '</td>'
+      + '<td><strong>' + r.xa + '</strong></td>'
+      + '<td class="r" style="color:var(--green)">' + (has ? vnd(r.capI) : '—') + '</td>'
+      + '<td class="r" style="color:var(--blue)">' + (has ? vnd(r.bbI) : '—') + '</td>'
+      + '<td class="r">' + fmtD(r.diffI, has) + '</td>'
+      + '<td class="r" style="color:var(--green)">' + (has ? vnd(r.capII) : '—') + '</td>'
+      + '<td class="r" style="color:var(--blue)">' + (has ? vnd(r.bbII) : '—') + '</td>'
+      + '<td class="r">' + fmtD(r.diffII, has) + '</td>'
+      + '<td class="c">' + badgeHtml(r) + '</td>'
+      + '</tr>';
+  });
+  tbody.innerHTML = h;
+}
+
+function openXaDCDetailModal(xa, q) {
+  if (CU && CU.role === 'bhxh') {
+    oRevBHXH(xa, q);
+  } else {
+    oRev(xa, q);
+  }
+  setTimeout(() => {
+    const dcBtn = Array.from(document.querySelectorAll('#moRContent .tbn')).find(b => b.textContent.includes('Đối chiếu KP'));
+    if (dcBtn) dcBtn.click();
+  }, 350);
+}
+
+async function exportProvinceDCXlsx(period, nam) {
+  try {
+    const dcRaw = (window._lastProvinceDC && window._lastProvinceDC.nam === nam)
+      ? window._lastProvinceDC.data
+      : await api('GET', '/api/cap/doichieu?nam=' + nam);
+    const summaries = buildProvinceDCSummary(dcRaw, period);
+    const wb = new ExcelJS.Workbook();
+    const label = period === 'ALL' ? ('CaNam_' + nam) : ('Quy' + period + '_' + nam);
+    const ws = wb.addWorksheet('DoiChieu_' + label);
+    ws.columns = [{width:6},{width:28},{width:18},{width:18},{width:18},{width:18},{width:18},{width:18},{width:20}];
+    const B = () => ({ top:{style:'thin'}, bottom:{style:'thin'}, left:{style:'thin'}, right:{style:'thin'} });
+    const F = hex => ({ type:'pattern', pattern:'solid', fgColor:{argb:'FF'+hex} });
+    const fnt = (bold, sz) => ({ name:'Times New Roman', size:sz||(bold?11:11), bold:!!bold });
+
+    const r1 = ws.getRow(1); r1.height = 24;
+    r1.getCell(1).value = 'BẢNG ĐỐI CHIẾU KINH PHÍ BHYT TOÀN TỈNH — ' + (period === 'ALL' ? ('CẢ NĂM ' + nam) : ('QUÝ ' + period + '/' + nam));
+    r1.getCell(1).font = fnt(true, 13); r1.getCell(1).alignment = { horizontal:'center', vertical:'middle' };
+    ws.mergeCells(1, 1, 1, 9); r1.commit();
+
+    const r2 = ws.getRow(2); r2.height = 22;
+    ['STT','Xã/Phường','Mục I — Nguồn ưu đãi NCC','','','Mục II — Nguồn ĐBXH','','','Trạng thái'].forEach((v, idx) => {
+      const c = r2.getCell(idx + 1); c.value = v; c.font = fnt(true); c.border = B();
+      c.alignment = { horizontal:'center', vertical:'middle' };
+      c.fill = idx >= 2 && idx <= 4 ? F('C9DAF8') : (idx >= 5 && idx <= 7 ? F('D9EAD3') : F('E8E8E8'));
+    });
+    ws.mergeCells(2, 1, 3, 1); ws.mergeCells(2, 2, 3, 2);
+    ws.mergeCells(2, 3, 2, 5); ws.mergeCells(2, 6, 2, 8);
+    ws.mergeCells(2, 9, 3, 9); r2.commit();
+
+    const r3 = ws.getRow(3); r3.height = 20;
+    ['','','Sở TB cấp (đ)','BB đã cấp (đ)','Chênh lệch (đ)','Sở TB cấp (đ)','BB đã cấp (đ)','Chênh lệch (đ)',''].forEach((v, idx) => {
+      const c = r3.getCell(idx + 1); if (v) c.value = v; c.font = fnt(true); c.border = B();
+      c.alignment = { horizontal:'center', vertical:'middle' }; c.fill = F('F2F2F2');
+    });
+    r3.commit();
+
+    summaries.forEach((s, i) => {
+      const row = ws.getRow(4 + i); row.height = 19;
+      const stTxt = s.status === 'none' ? 'Chưa đối chiếu' : (s.status === 'ok' ? 'Khớp 100%' : 'Có chênh lệch');
+      [i + 1, s.xa, s.capI, s.bbI, s.diffI, s.capII, s.bbII, s.diffII, stTxt].forEach((val, ci) => {
+        const c = row.getCell(ci + 1); c.value = val; c.font = fnt(ci === 1); c.border = B();
+        c.alignment = { horizontal: ci === 0 || ci === 8 ? 'center' : (ci === 1 ? 'left' : 'right'), vertical:'middle' };
+        if (ci >= 2 && ci <= 7) c.numFmt = '#,##0';
+      });
+      row.commit();
+    });
+
+    const buf = await wb.xlsx.writeBuffer();
+    const blob = new Blob([buf], { type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+    a.download = 'DoiChieuKP_ToanTinh_' + label + '.xlsx'; a.click();
+  } catch (e) {
+    alert('Lỗi xuất Excel đối chiếu toàn tỉnh: ' + e.message);
+  }
 }
 
 async function toggleQuyLock(q, lock){
@@ -741,9 +1269,20 @@ async function toggleQuyLock(q, lock){
   } catch(e){ alert('Lỗi: '+e.message); }
 }
 
+async function toggleYearLock(lock){
+  const msg = lock
+    ? 'KHÓA CHỈNH SỬA TOÀN BỘ NĂM '+DASH_NAM+' (Quý I, II, III, IV)?\n\nThao tác này dùng khi kết thúc năm quyết toán để bảo toàn số liệu.'
+    : 'Mở khóa toàn bộ 4 Quý của năm '+DASH_NAM+'?';
+  if(!confirm(msg)) return;
+  try {
+    await api('POST', '/api/admin/lock-year', {nam: DASH_NAM, locked: lock});
+    loadDash();
+  } catch(e){ alert('Lỗi: '+e.message); }
+}
+
 function rMon(){
   return '<div class="pt">Theo dõi tiến độ</div><div class="ps">Trạng thái từng xã theo Quý — Năm '+DASH_NAM+'</div>'
-    +'<div class="fb"><select id="mq" onchange="rfM()" style="width:160px">'+QS.map(q=>'<option '+(q==='II'?'selected':'')+'>'+q+'</option>').join('')+'</select>'
+    +'<div class="fb"><select id="mq" onchange="rfM()" style="width:160px">'+QS.map(q=>'<option '+(q===XS.q?'selected':'')+'>'+q+'</option>').join('')+'</select>'
     +'<input class="si" id="ms" placeholder="Tìm xã..." oninput="rfM()"></div><div id="mc"><div style="padding:20px;text-align:center;color:var(--text2)">Chọn Quý để xem</div></div>';
 }
 function rfM(){
@@ -772,7 +1311,7 @@ function rRevList(){
   return '<div class="pt">Duyệt biên bản</div><div class="ps">Xem và duyệt biên bản của các xã</div>'
     +'<div class="fb">'
     +'<select id="rs" onchange="rfR()" style="width:160px"><option value="">Tất cả</option><option value="pending" selected>Chờ xác nhận</option><option value="approved">Đã xác nhận</option><option value="returned">Đã trả về</option></select>'
-    +'<select id="rq" onchange="rfR()" style="width:160px"><option value="">Tất cả Quý</option>'+QS.map(q=>'<option '+(q==='II'?'selected':'')+'>'+q+'</option>').join('')+'</select>'
+    +'<select id="rq" onchange="rfR()" style="width:160px"><option value="">Tất cả Quý</option>'+QS.map(q=>'<option '+(q===XS.q?'selected':'')+'>'+q+'</option>').join('')+'</select>'
     +'<input class="si" id="rsrc" placeholder="Tìm xã..." oninput="rfR()"></div>'
     +'<div id="rlc"><div style="padding:20px;text-align:center;color:var(--text2)">Đang tải...</div></div>';
 }
@@ -1147,7 +1686,7 @@ function openAccMgr(){
 function openAddUser(){
   const xa=prompt('Tên xã/phường:',''); if(!xa||!xa.trim()) return;
   const un=prompt('Tên đăng nhập (không dấu, không space):',''); if(!un||!un.trim()) return;
-  const pw=prompt('Mật khẩu (tối thiểu 6 ký tự):','Xa@2026'); if(!pw||pw.length<6){alert('Mật khẩu quá ngắn');return;}
+  const pw=prompt('Mật khẩu (tối thiểu 6 ký tự):','Xa@'+NAM); if(!pw||pw.length<6){alert('Mật khẩu quá ngắn');return;}
   api('POST','/api/users',{username:un.trim(),password:pw,name:xa.trim(),xa:xa.trim()})
     .then(()=>{ alert('✓ Đã thêm: '+un.trim()); openAccMgr(); })
     .catch(e=>alert('Lỗi: '+e.message));
@@ -1168,7 +1707,7 @@ function adminToggle(un, active){
 function rRpt() {
   return '<div class="pt">Tổng hợp Quý</div><div class="ps">Phụ lục 01 (Nguồn ưu đãi NCC) và Phụ lục 02 (Nguồn ĐBXH)</div>'
     + '<div class="fb">'
-    + '<select id="rpq" style="width:160px">' + QS.map(q => '<option ' + (q === 'II' ? 'selected' : '') + '>' + q + '</option>').join('') + '</select>'
+    + '<select id="rpq" style="width:160px">' + QS.map(q => '<option ' + (q === DASH_Q ? 'selected' : '') + '>' + q + '</option>').join('') + '</select>'
     + '<input class="si" id="rpnam" style="width:90px" value="' + NAM + '" placeholder="Năm">'
     + '<input class="si" id="rpTbSo" style="width:150px" placeholder="Số TB (VD: 12)">'
     + '<input class="si" id="rpNgay" style="width:80px" placeholder="Ngày">'
@@ -2455,9 +2994,9 @@ async function importCapXlsx(input){
 }
 
 // ═══ XÃ PAGES ═══
-let XS={q:'II',am:4,locked:false};
+let XS={q:_INIT_TIME.quy,am:_INIT_TIME.month,locked:false};
 const DR={};
-function dk2(xa,q,m,i,c){ return xa+'|'+q+'|'+m+'|'+i+'|'+c; }
+function dk2(xa,q,m,i,c,namOpt){ return xa+'|'+(namOpt||NAM)+'|'+q+'|'+m+'|'+i+'|'+c; }
 
 function bXP(){
   document.getElementById('MN').innerHTML=
@@ -2536,7 +3075,7 @@ async function loadXStPage(){
   const xa=CU.xa;
   try {
     const bbs=await Promise.all(QS.map(q=>api('GET','/api/bienban?xa='+encodeURIComponent(xa)+'&quy='+q+'&nam='+NAM).catch(()=>null)));
-    el.innerHTML='<div class="pt">Trạng thái — '+xa+'</div><div class="ps">Năm '+DASH_NAM+'</div>'
+    el.innerHTML='<div class="pt">Trạng thái — '+xa+'</div><div class="ps">Năm '+NAM+'</div>'
       +'<div class="tw"><table><thead><tr><th>Quý</th><th>Ngày gửi</th><th class="r">NSNN tháng cuối Quý (đ)</th><th>Trạng thái</th><th>Ghi chú</th></tr></thead><tbody>'
       +QS.map(function(q,i){ var r=bbs[i];
         var tot=r?calcTotalNsnn(r,q):0;
@@ -2627,7 +3166,7 @@ function rXN(){
   return '<div class="pt">Nhập & Gửi biên bản</div><div class="ps">Nhập đầy đủ cả 3 tháng trong Quý, kiểm tra kỹ rồi gửi một lần</div>'
     +'<div class="card" style="padding:16px 20px"><div style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap">'
     +'<div><label style="font-size:11px;color:var(--text2);text-transform:uppercase;font-weight:500;display:block;margin-bottom:5px">Quý / Năm</label>'
-    +'<select id="xqs" onchange="onQC()" style="width:160px">'+QS.map(q=>'<option '+(q==='II'?'selected':'')+'>'+q+' / '+NAM+'</option>').join('')+'</select></div></div></div>'
+    +'<select id="xqs" onchange="onQC()" style="width:160px">'+QS.map(q=>'<option '+(q===XS.q?'selected':'')+'>'+q+' / '+NAM+'</option>').join('')+'</select></div></div></div>'
     +'<div id="xntc"></div>'
     +'<div style="margin-bottom:8px">'
     +'<button class="btn btn-w" onclick="openDCModal()">⇌ Xem đối chiếu kinh phí '+NAM+'</button>'
@@ -2639,9 +3178,9 @@ function rXN(){
     +'<button class="btn btn-g" id="btnDraft" onclick="sdraft()">💾 Lưu nháp</button>'
     +'<button class="btn btn-w" onclick="printMonth()">🖨️ In biên bản tháng này</button>'
     +'<button class="btn btn-w" onclick="exportMonthXlsx()" style="border-color:var(--green);color:var(--green)">📊 Xuất Excel tháng này</button>'
+    +'<button class="btn-drive" onclick="uploadToDrive()">☁ Gửi Hồ sơ</button>'
     +'<button class="btn btn-p" id="btnGui" onclick="showCS()">📤 Gửi xét duyệt Quý</button>'
     +'<button class="btn btn-d" id="btnThuHoi" style="display:none" onclick="thuHoiBB()">↩ Thu hồi để chỉnh sửa</button>'
-    +'<button class="btn-drive" onclick="uploadToDrive()">☁ Gửi Hồ sơ</button>'
     +'<span id="xdm" style="font-size:12px;color:var(--green);display:none">✓ Đã lưu nháp</span></div>';
 }
 
@@ -2650,7 +3189,9 @@ function gNhap(q){ sp('xn'); setTimeout(()=>{ const s=document.getElementById('x
 function onQC(){
   const qEl=document.getElementById('xqs'); if(!qEl)return;
   const q=qEl.value.split('/')[0].trim();
-  XS.q=q; XS.am=QM[q][0];
+  const curM = new Date().getMonth() + 1;
+  XS.q=q; XS.am=QM[q].includes(curM) ? curM : QM[q][0];
+  syncYearSelectors();
   XS.locked=false; // Reset locked khi chuyển Quý, sẽ được set lại bởi loadXFState
   buildMTabs(); loadXFState();
 }
@@ -2660,19 +3201,30 @@ function buildMTabs(){
   const mIdx=months.indexOf(XS.am);
   const qIdx=QS.indexOf(XS.q);
 
-  let prevM=null, prevQ=null;
+  let prevM=null, prevQ=null, prevNam=NAM;
   if(mIdx>0){
     // Tháng 2,3 trong Quý → copy từ tháng trước trong cùng Quý
     prevM=months[mIdx-1];
     prevQ=XS.q;
+    prevNam=NAM;
   } else if(qIdx>0){
-    // Tháng đầu Quý (4,7,10) → copy từ tháng cuối Quý trước
+    // Tháng đầu Quý (4,7,10) → copy từ tháng cuối Quý trước trong cùng năm
     prevQ=QS[qIdx-1];
     prevM=QM[prevQ][QM[prevQ].length-1];
+    prevNam=NAM;
+  } else if(qIdx===0 && mIdx===0){
+    // Tháng 1 (Quý I) → kết chuyển từ Tháng 12 (Quý IV) năm trước
+    prevQ='IV';
+    prevM=12;
+    prevNam=NAM-1;
   }
 
+  const isYearTransition = prevNam < NAM;
+  const copyBtnLabel = isYearTransition
+    ? '🔄 Kết chuyển từ T12/Quý IV/' + prevNam
+    : '⎘ Copy từ Tháng ' + prevM + ' (Quý ' + prevQ + '/' + prevNam + ')';
   const copyBtn=prevM&&!XS.locked
-    ?'<button class="btn btn-s" style="margin-left:12px;font-size:11px" onclick="copyPrevMonth(\''+prevQ+'\','+prevM+',\''+XS.q+'\','+XS.am+')">⎘ Copy từ Tháng '+prevM+' (Quý '+prevQ+')</button>'
+    ?'<button class="btn '+(isYearTransition?'btn-w':'btn-s')+'" style="margin-left:12px;font-size:11px" onclick="copyPrevMonth(\''+prevQ+'\','+prevM+',\''+XS.q+'\','+XS.am+','+prevNam+')">'+copyBtnLabel+'</button>'
     :'';
   el.innerHTML=months.map(m=>'<button class="tbn '+(m===XS.am?'active':'')+'" onclick="swXM('+m+',this)">Tháng '+m+'</button>').join('')+copyBtn;
   renderXT(XS.locked||false);
@@ -2686,56 +3238,82 @@ function swXM(m,btn){
   buildMTabs();
 }
 
-function copyPrevMonth(prevQ, mPrev, currQ, mCurr){
-  const crossQuy = prevQ !== currQ;
-  const label = crossQuy
-    ? 'Tháng '+mPrev+'/Quý '+prevQ+' → Tháng '+mCurr+'/Quý '+currQ
-    : 'Tháng '+mPrev+' → Tháng '+mCurr;
-  if(!confirm('Copy dữ liệu '+label+'?\n\n• Đầu kỳ T'+mCurr+' = Cuối kỳ T'+mPrev+'\n• T.Trước c/sang T'+mCurr+' = NSNN phải đóng T'+mPrev+'\n• Thu tháng T'+mCurr+' = Thu tháng T'+mPrev+'\n\nCác ô PS tăng, PS giảm, Bổ sung, KP đã cấp giữ nguyên.')) return;
+function copyPrevMonth(prevQ, mPrev, currQ, mCurr, prevNam){
+  prevNam = parseInt(prevNam || NAM);
+  const crossNam = prevNam !== NAM;
+  const crossQuy = prevQ !== currQ || crossNam;
 
-  saveCMD(); // Lưu tháng hiện tại vào DR trước
+  const executeCopyWithMode = (financeMode) => {
+    saveCMD(); // Lưu tháng hiện tại vào DR trước
+    const xa = CU.xa;
+    const doCopy = () => {
+      DO.forEach((_, i) => {
+        const dk_  = DR[dk2(xa, prevQ, mPrev, i, 'dk', prevNam)] || 0;
+        const pt_  = DR[dk2(xa, prevQ, mPrev, i, 'pt', prevNam)] || 0;
+        const pg_  = DR[dk2(xa, prevQ, mPrev, i, 'pg', prevNam)] || 0;
+        const tt_  = DR[dk2(xa, prevQ, mPrev, i, 'tt', prevNam)] || 0;
+        const thu_ = DR[dk2(xa, prevQ, mPrev, i, 'thu', prevNam)] || 0;
+        const bs_  = DR[dk2(xa, prevQ, mPrev, i, 'bs', prevNam)] || 0;
+        const cap_ = DR[dk2(xa, prevQ, mPrev, i, 'cap', prevNam)] || 0;
+        const ck_prev   = dk_ + pt_ - pg_;
+        const nsnn_prev = tt_ + thu_ + bs_ - cap_;
 
-  // Nếu copy từ Quý khác, cần lấy data từ DB vì DR có thể chưa có
-  const xa=CU.xa;
-  const doCopy=()=>{
-    DO.forEach((_,i)=>{
-      const dk_  = DR[dk2(xa,prevQ,mPrev,i,'dk')]||0;
-      const pt_  = DR[dk2(xa,prevQ,mPrev,i,'pt')]||0;
-      const pg_  = DR[dk2(xa,prevQ,mPrev,i,'pg')]||0;
-      const tt_  = DR[dk2(xa,prevQ,mPrev,i,'tt')]||0;
-      const thu_ = DR[dk2(xa,prevQ,mPrev,i,'thu')]||0;
-      const bs_  = DR[dk2(xa,prevQ,mPrev,i,'bs')]||0;
-      const cap_ = DR[dk2(xa,prevQ,mPrev,i,'cap')]||0;
-      const ck_prev   = dk_ + pt_ - pg_;
-      const nsnn_prev = tt_ + thu_ + bs_ - cap_;
-      // Ghi vào tháng hiện tại
-      DR[dk2(xa,currQ,mCurr,i,'dk')]  = ck_prev;
-      DR[dk2(xa,currQ,mCurr,i,'tt')]  = nsnn_prev;
-      DR[dk2(xa,currQ,mCurr,i,'thu')] = thu_;
-      // pt, pg, bs, cap giữ nguyên (không xóa)
-    });
-    renderXT(XS.locked||false);
-  };
+        DR[dk2(xa, currQ, mCurr, i, 'dk', NAM)] = ck_prev;
+        if (crossNam && financeMode === 'reset_zero') {
+          DR[dk2(xa, currQ, mCurr, i, 'tt', NAM)]  = 0;
+          DR[dk2(xa, currQ, mCurr, i, 'thu', NAM)] = 0;
+        } else {
+          DR[dk2(xa, currQ, mCurr, i, 'tt', NAM)]  = nsnn_prev;
+          DR[dk2(xa, currQ, mCurr, i, 'thu', NAM)] = thu_;
+        }
+      });
+      renderXT(XS.locked || false);
+    };
 
-  if(crossQuy){
-    // Fetch data Quý trước từ DB để đảm bảo có đủ data
-    api('GET','/api/bienban?xa='+encodeURIComponent(xa)+'&quy='+prevQ+'&nam='+NAM)
-      .then(r=>{
-        if(r&&r.mths){
-          Object.entries(r.mths).forEach(([thang,objs])=>{
-            Object.entries(objs).forEach(([dt,d])=>{
-              ['dk','pt','pg','tt','thu','bs','cap'].forEach(c=>{
-                DR[dk2(xa,prevQ,parseInt(thang),parseInt(dt),c)]=d[c]||0;
+    if (crossQuy) {
+      api('GET', '/api/bienban?xa=' + encodeURIComponent(xa) + '&quy=' + prevQ + '&nam=' + prevNam)
+        .then(r => {
+          if (!r || !r.mths || !r.mths[mPrev]) {
+            alert('Không tìm thấy số liệu Tháng ' + mPrev + '/Quý ' + prevQ + '/' + prevNam + ' trên hệ thống.');
+            return;
+          }
+          Object.entries(r.mths).forEach(([thang, objs]) => {
+            Object.entries(objs).forEach(([dt, d]) => {
+              ['dk', 'pt', 'pg', 'tt', 'thu', 'bs', 'cap'].forEach(c => {
+                DR[dk2(xa, prevQ, parseInt(thang), parseInt(dt), c, prevNam)] = d[c] || 0;
               });
             });
           });
-        }
-        doCopy();
-      })
-      .catch(()=>{ alert('Không tải được dữ liệu Quý '+prevQ+'. Vui lòng thử lại.'); });
-  } else {
-    doCopy();
+          doCopy();
+          if (crossNam) {
+            alert('✅ Đã kết chuyển số liệu từ Tháng 12/' + prevNam + ' sang Tháng 1/' + NAM + '.\nVui lòng kiểm tra lại và bấm "💾 Lưu nháp".');
+          }
+        })
+        .catch(() => { alert('Không tải được dữ liệu Quý ' + prevQ + '/' + prevNam + '. Vui lòng thử lại.'); });
+    } else {
+      doCopy();
+    }
+  };
+
+  if (crossNam) {
+    document.getElementById('moCOTitle').textContent = '🔄 Kết chuyển chuyển tiếp năm (' + prevNam + ' → ' + NAM + ')';
+    document.getElementById('moCODesc').innerHTML =
+      'Hệ thống sẽ lấy số liệu cuối kỳ <strong>Tháng 12 / Quý IV / ' + prevNam + '</strong> của <strong>' + CU.xa + '</strong> để khởi tạo cho <strong>Tháng 1 / Quý I / ' + NAM + '</strong>. Các cột PS tăng, PS giảm, Truy thu/giảm, KP đã cấp hiện có được giữ nguyên.';
+    const btn = document.getElementById('moCOConfirmBtn');
+    btn.onclick = () => {
+      const mode = document.querySelector('input[name="coFinanceMode"]:checked')?.value || 'carry';
+      cm('moCarryOver');
+      executeCopyWithMode(mode);
+    };
+    document.getElementById('moCarryOver').classList.add('open');
+    return;
   }
+
+  const label = crossQuy
+    ? 'Tháng ' + mPrev + '/Quý ' + prevQ + ' → Tháng ' + mCurr + '/Quý ' + currQ
+    : 'Tháng ' + mPrev + ' → Tháng ' + mCurr;
+  if (!confirm('Copy dữ liệu ' + label + '?\n\n• Đầu kỳ T' + mCurr + ' = Cuối kỳ T' + mPrev + '\n• T.Trước c/sang T' + mCurr + ' = NSNN phải đóng T' + mPrev + '\n• Thu tháng T' + mCurr + ' = Thu tháng T' + mPrev + '\n\nCác ô PS tăng, PS giảm, Bổ sung, KP đã cấp giữ nguyên.')) return;
+  executeCopyWithMode('carry');
 }
 
 function saveCMD(){
@@ -3408,7 +3986,7 @@ document.addEventListener('DOMContentLoaded', function(){
 function uploadToDrive(){
   var xa = CU && CU.xa ? CU.xa : '';
   if(!xa){ window.open('https://drive.google.com/drive/folders/18GL0bQssyvwI2CK-RMNmDQh_DDMan7CG','_blank'); return; }
-  api('GET','/api/mylink').then(function(data){
+  api('GET','/api/mylink?nam='+NAM).then(function(data){
     var link = data.link || '';
     if(!link){
       if(!confirm('Chưa có link Drive riêng cho '+xa+'.\nMở thư mục Drive chung?')) return;
@@ -3473,7 +4051,7 @@ async function loadLinkPage(){
   var el = document.getElementById('p-lk'); if(!el) return;
   el.innerHTML = '<div style="padding:40px;text-align:center;color:var(--text2)">Đang tải...</div>';
   try {
-    var links = await api('GET', '/api/users/all-links');
+    var links = await api('GET', '/api/users/all-links?nam='+DASH_NAM);
     if(!Array.isArray(links)) throw new Error('Dữ liệu không hợp lệ');
     var linkMap = {};
     links.forEach(function(l){ linkMap[l.xa] = l; });
@@ -3495,8 +4073,8 @@ async function loadLinkPage(){
         +'</tr>';
     }).join('');
     window._lkLinks = links;
-    el.innerHTML = '<div class="pt">Quản lý đường link Drive</div>'
-      +'<div class="ps">Gán link thư mục Google Drive riêng cho từng xã — nút "Gửi lên Drive" của xã sẽ mở đúng thư mục đó</div>'
+    el.innerHTML = '<div class="pt">Quản lý đường link Drive — Năm '+DASH_NAM+'</div>'
+      +'<div class="ps">Gán link thư mục Google Drive riêng cho từng xã theo từng năm (lưu tách biệt lịch sử các năm)</div>'
       +'<div class="sg" style="grid-template-columns:repeat(3,1fr);margin-bottom:16px">'
       +'<div class="sc"><div class="sl2">Đã có link</div><div class="sv green">'+daCo+'</div></div>'
       +'<div class="sc"><div class="sl2">Chưa có link</div><div class="sv red">'+(XL.length-daCo)+'</div></div>'
@@ -3534,14 +4112,14 @@ function editLinkXa(btn){
   if(window._lkLinks){ var item = window._lkLinks.find(function(l){return l.username===un;}); if(item) cur = item.link||''; }
   var val = prompt('Link Drive cho: '+xa+'\n(Để trống để xóa)', cur);
   if(val === null) return;
-  api('PUT','/api/users/'+encodeURIComponent(un)+'/link',{link:val.trim()})
+  api('PUT','/api/users/'+encodeURIComponent(un)+'/link',{link:val.trim(),nam:DASH_NAM})
     .then(function(){ loadLinkPage(); })
     .catch(function(e){ alert('Lỗi: '+e.message); });
 }
 function deleteLinkXa(btn){
   var un=btn.getAttribute("data-un");
   if(!confirm('Xóa link Drive?')) return;
-  api('PUT','/api/users/'+encodeURIComponent(un)+'/link',{link:''})
+  api('PUT','/api/users/'+encodeURIComponent(un)+'/link',{link:'',nam:DASH_NAM})
     .then(function(){ loadLinkPage(); })
     .catch(function(e){ alert('Lỗi: '+e.message); });
 }
@@ -3567,7 +4145,7 @@ function doImportLinks(){
   if(!items.length){ alert('Không có dòng hợp lệ.'); return; }
   var msg = document.getElementById('lkImportMsg');
   if(msg){ msg.style.display='inline'; msg.textContent='Đang nhập...'; }
-  api('POST','/api/users/links-bulk',{links:items}).then(function(r){
+  api('POST','/api/users/links-bulk',{links:items,nam:DASH_NAM}).then(function(r){
     if(msg){ msg.textContent='Đã cập nhật '+r.updated+' link'+(skip?' ('+skip+' dòng không khớp)':''); }
     loadLinkPage();
     document.getElementById('lkImportBox').style.display = '';
@@ -3606,7 +4184,7 @@ function oRevBHXH(xa, q){
       throw e;
     });
   // BHXH cũng được phép xem hồ sơ Drive đã gửi (endpoint dùng requireViewer)
-  const pLink = api('GET', '/api/users/all-links')
+  const pLink = api('GET', '/api/users/all-links?nam='+DASH_NAM)
     .then(arr => { const f = arr.find(l => l.xa === xa); return f ? f.link : ''; })
     .catch(() => '');
 
