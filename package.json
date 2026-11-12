@@ -1,0 +1,23 @@
+{
+  "name": "bhyt-sonla",
+  "version": "4.0.0",
+  "description": "Hệ thống Biên bản BHYT - Sở Nội vụ Sơn La",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "seed": "node server/seed.js",
+    "dev": "node app.js"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.9.7",
+    "nodemailer": "^6.9.13"
+  }
+}

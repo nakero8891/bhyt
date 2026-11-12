@@ -1,0 +1,14 @@
+# File này đặt vào public_html/.htaccess
+# Chuyển tất cả request vào Node.js app qua Passenger
+
+PassengerEnabled on
+PassengerAppRoot /home/YOUR_CPANEL_USER/bhyt
+PassengerStartupFile app.js
+PassengerAppType node
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^$ http://127.0.0.1:3000/ [P,L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.*)$ http://127.0.0.1:3000/$1 [P,L]
+</IfModule>

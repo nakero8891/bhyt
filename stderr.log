@@ -1,0 +1,2250 @@
+node:internal/modules/cjs/loader:1093
+  throw err;
+  ^
+
+Error: Cannot find module 'dotenv'
+Require stack:
+- /home/bhoyxsqr/bhyt-system/server/app.js
+- /home/bhoyxsqr/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1090:15)
+    at Module._load (node:internal/modules/cjs/loader:934:27)
+    at Module.require (node:internal/modules/cjs/loader:1157:19)
+    at require (node:internal/modules/helpers:119:18)
+    at Object.<anonymous> (/home/bhoyxsqr/bhyt-system/server/app.js:3:1)
+    at Module._compile (node:internal/modules/cjs/loader:1275:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1329:10)
+    at Module.load (node:internal/modules/cjs/loader:1133:32)
+    at Module._load (node:internal/modules/cjs/loader:972:12)
+    at Module.require (node:internal/modules/cjs/loader:1157:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/bhoyxsqr/bhyt-system/server/app.js',
+    '/home/bhoyxsqr/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v19.9.0
+node:internal/modules/cjs/loader:1093
+  throw err;
+  ^
+
+Error: Cannot find module 'dotenv'
+Require stack:
+- /home/bhoyxsqr/bhyt-system/server/app.js
+- /home/bhoyxsqr/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1090:15)
+    at Module._load (node:internal/modules/cjs/loader:934:27)
+    at Module.require (node:internal/modules/cjs/loader:1157:19)
+    at require (node:internal/modules/helpers:119:18)
+    at Object.<anonymous> (/home/bhoyxsqr/bhyt-system/server/app.js:3:1)
+    at Module._compile (node:internal/modules/cjs/loader:1275:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1329:10)
+    at Module.load (node:internal/modules/cjs/loader:1133:32)
+    at Module._load (node:internal/modules/cjs/loader:972:12)
+    at Module.require (node:internal/modules/cjs/loader:1157:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/bhoyxsqr/bhyt-system/server/app.js',
+    '/home/bhoyxsqr/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v19.9.0
+node:internal/modules/cjs/loader:1093
+  throw err;
+  ^
+
+Error: Cannot find module 'dotenv'
+Require stack:
+- /home/bhoyxsqr/bhyt-system/server/app.js
+- /home/bhoyxsqr/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1090:15)
+    at Module._load (node:internal/modules/cjs/loader:934:27)
+    at Module.require (node:internal/modules/cjs/loader:1157:19)
+    at require (node:internal/modules/helpers:119:18)
+    at Object.<anonymous> (/home/bhoyxsqr/bhyt-system/server/app.js:3:1)
+    at Module._compile (node:internal/modules/cjs/loader:1275:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1329:10)
+    at Module.load (node:internal/modules/cjs/loader:1133:32)
+    at Module._load (node:internal/modules/cjs/loader:972:12)
+    at Module.require (node:internal/modules/cjs/loader:1157:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/bhoyxsqr/bhyt-system/server/app.js',
+    '/home/bhoyxsqr/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v19.9.0
+node:internal/modules/cjs/loader:1093
+  throw err;
+  ^
+
+Error: Cannot find module 'dotenv'
+Require stack:
+- /home/bhoyxsqr/bhyt-system/server/app.js
+- /home/bhoyxsqr/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1090:15)
+    at Module._load (node:internal/modules/cjs/loader:934:27)
+    at Module.require (node:internal/modules/cjs/loader:1157:19)
+    at require (node:internal/modules/helpers:119:18)
+    at Object.<anonymous> (/home/bhoyxsqr/bhyt-system/server/app.js:3:1)
+    at Module._compile (node:internal/modules/cjs/loader:1275:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1329:10)
+    at Module.load (node:internal/modules/cjs/loader:1133:32)
+    at Module._load (node:internal/modules/cjs/loader:972:12)
+    at Module.require (node:internal/modules/cjs/loader:1157:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/bhoyxsqr/bhyt-system/server/app.js',
+    '/home/bhoyxsqr/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v19.9.0
+Error: Table 'bhoyxsqr_bhyt.users' doesn't exist
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:24:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at serveStatic (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/serve-static/index.js:75:16) {
+  code: 'ER_NO_SUCH_TABLE',
+  errno: 1146,
+  sql: 'SELECT * FROM users WHERE username=? AND active=1',
+  sqlState: '42S02',
+  sqlMessage: "Table 'bhoyxsqr_bhyt.users' doesn't exist"
+}
+Error: Table 'bhoyxsqr_bhyt.users' doesn't exist
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:24:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at serveStatic (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/serve-static/index.js:75:16) {
+  code: 'ER_NO_SUCH_TABLE',
+  errno: 1146,
+  sql: 'SELECT * FROM users WHERE username=? AND active=1',
+  sqlState: '42S02',
+  sqlMessage: "Table 'bhoyxsqr_bhyt.users' doesn't exist"
+}
+Error: Table 'bhoyxsqr_bhyt.users' doesn't exist
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:24:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at serveStatic (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/serve-static/index.js:75:16) {
+  code: 'ER_NO_SUCH_TABLE',
+  errno: 1146,
+  sql: 'SELECT * FROM users WHERE username=? AND active=1',
+  sqlState: '42S02',
+  sqlMessage: "Table 'bhoyxsqr_bhyt.users' doesn't exist"
+}
+Error: Table 'bhoyxsqr_bhyt.users' doesn't exist
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:24:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at serveStatic (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/serve-static/index.js:75:16) {
+  code: 'ER_NO_SUCH_TABLE',
+  errno: 1146,
+  sql: 'SELECT * FROM users WHERE username=? AND active=1',
+  sqlState: '42S02',
+  sqlMessage: "Table 'bhoyxsqr_bhyt.users' doesn't exist"
+}
+Error: Table 'bhoyxsqr_bhyt.users' doesn't exist
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:24:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at serveStatic (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/serve-static/index.js:75:16) {
+  code: 'ER_NO_SUCH_TABLE',
+  errno: 1146,
+  sql: 'SELECT * FROM users WHERE username=? AND active=1',
+  sqlState: '42S02',
+  sqlMessage: "Table 'bhoyxsqr_bhyt.users' doesn't exist"
+}
+Error: Table 'bhoyxsqr_bhyt.users' doesn't exist
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:24:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at serveStatic (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/serve-static/index.js:75:16) {
+  code: 'ER_NO_SUCH_TABLE',
+  errno: 1146,
+  sql: 'SELECT * FROM users WHERE username=? AND active=1',
+  sqlState: '42S02',
+  sqlMessage: "Table 'bhoyxsqr_bhyt.users' doesn't exist"
+}
+Error: Table 'bhoyxsqr_bhyt.users' doesn't exist
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:24:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at serveStatic (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/serve-static/index.js:75:16) {
+  code: 'ER_NO_SUCH_TABLE',
+  errno: 1146,
+  sql: 'SELECT * FROM users WHERE username=? AND active=1',
+  sqlState: '42S02',
+  sqlMessage: "Table 'bhoyxsqr_bhyt.users' doesn't exist"
+}
+Error: Table 'bhoyxsqr_bhyt.users' doesn't exist
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:24:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at serveStatic (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/serve-static/index.js:75:16) {
+  code: 'ER_NO_SUCH_TABLE',
+  errno: 1146,
+  sql: 'SELECT * FROM users WHERE username=? AND active=1',
+  sqlState: '42S02',
+  sqlMessage: "Table 'bhoyxsqr_bhyt.users' doesn't exist"
+}
+Error: Table 'bhoyxsqr_bhyt.users' doesn't exist
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:24:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at serveStatic (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/serve-static/index.js:75:16) {
+  code: 'ER_NO_SUCH_TABLE',
+  errno: 1146,
+  sql: 'SELECT * FROM users WHERE username=? AND active=1',
+  sqlState: '42S02',
+  sqlMessage: "Table 'bhoyxsqr_bhyt.users' doesn't exist"
+}
+Error: Table 'bhoyxsqr_bhyt.users' doesn't exist
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:24:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at serveStatic (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/serve-static/index.js:75:16) {
+  code: 'ER_NO_SUCH_TABLE',
+  errno: 1146,
+  sql: 'SELECT * FROM users WHERE username=? AND active=1',
+  sqlState: '42S02',
+  sqlMessage: "Table 'bhoyxsqr_bhyt.users' doesn't exist"
+}
+Error: Table 'bhoyxsqr_bhyt.users' doesn't exist
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:24:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at serveStatic (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/serve-static/index.js:75:16) {
+  code: 'ER_NO_SUCH_TABLE',
+  errno: 1146,
+  sql: 'SELECT * FROM users WHERE username=? AND active=1',
+  sqlState: '42S02',
+  sqlMessage: "Table 'bhoyxsqr_bhyt.users' doesn't exist"
+}
+Error: Table 'bhoyxsqr_bhyt.users' doesn't exist
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:24:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at serveStatic (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/serve-static/index.js:75:16) {
+  code: 'ER_NO_SUCH_TABLE',
+  errno: 1146,
+  sql: 'SELECT * FROM users WHERE username=? AND active=1',
+  sqlState: '42S02',
+  sqlMessage: "Table 'bhoyxsqr_bhyt.users' doesn't exist"
+}
+[login] open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[migration] Error: open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[migration] Error: open EEXIST
+[login] open EEXIST
+[migration] Error: open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[migration] Error (non-fatal): open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[migration] Error (non-fatal): open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+[login] open EEXIST
+Error: Lock wait timeout exceeded; try restarting transaction
+    at PromisePoolConnection.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/connection.js:47:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:319:16
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  code: 'ER_LOCK_WAIT_TIMEOUT',
+  errno: 1205,
+  sql: 'INSERT INTO bienban (xa,quy,nam) VALUES (?,?,?) ON DUPLICATE KEY UPDATE updated_at=NOW()',
+  sqlState: 'HY000',
+  sqlMessage: 'Lock wait timeout exceeded; try restarting transaction'
+}
+Exception ignored in: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+BrokenPipeError: [Errno 32] Broken pipe
+Exception ignored in: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+BrokenPipeError: [Errno 32] Broken pipe
+Error: connect ECONNREFUSED ::1:3306
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:89:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/body-parser/lib/read.js:137:5 {
+  code: 'ECONNREFUSED',
+  errno: -111,
+  sql: undefined,
+  sqlState: undefined,
+  sqlMessage: undefined
+}
+Error: connect ECONNREFUSED ::1:3306
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:89:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/body-parser/lib/read.js:137:5 {
+  code: 'ECONNREFUSED',
+  errno: -111,
+  sql: undefined,
+  sqlState: undefined,
+  sqlMessage: undefined
+}
+Error: connect ECONNREFUSED ::1:3306
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:89:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/body-parser/lib/read.js:137:5 {
+  code: 'ECONNREFUSED',
+  errno: -111,
+  sql: undefined,
+  sqlState: undefined,
+  sqlMessage: undefined
+}
+Error: connect ECONNREFUSED ::1:3306
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:89:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/body-parser/lib/read.js:137:5 {
+  code: 'ECONNREFUSED',
+  errno: -111,
+  sql: undefined,
+  sqlState: undefined,
+  sqlMessage: undefined
+}
+Error: connect ECONNREFUSED ::1:3306
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:89:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/body-parser/lib/read.js:137:5 {
+  code: 'ECONNREFUSED',
+  errno: -111,
+  sql: undefined,
+  sqlState: undefined,
+  sqlMessage: undefined
+}
+Error: connect ECONNREFUSED ::1:3306
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:89:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/body-parser/lib/read.js:137:5 {
+  code: 'ECONNREFUSED',
+  errno: -111,
+  sql: undefined,
+  sqlState: undefined,
+  sqlMessage: undefined
+}
+Error: connect ECONNREFUSED ::1:3306
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:89:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/body-parser/lib/read.js:137:5 {
+  code: 'ECONNREFUSED',
+  errno: -111,
+  sql: undefined,
+  sqlState: undefined,
+  sqlMessage: undefined
+}
+[migration] skip users.link: connect ECONNREFUSED ::1:3306
+[migration] skip don_vi_cfg.cv: connect ECONNREFUSED ::1:3306
+[migration] skip don_vi_cfg.sdt: connect ECONNREFUSED ::1:3306
+Error: connect ECONNREFUSED ::1:3306
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:89:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/body-parser/lib/read.js:137:5 {
+  code: 'ECONNREFUSED',
+  errno: -111,
+  sql: undefined,
+  sqlState: undefined,
+  sqlMessage: undefined
+}
+Error: connect ECONNREFUSED ::1:3306
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:89:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/body-parser/lib/read.js:137:5 {
+  code: 'ECONNREFUSED',
+  errno: -111,
+  sql: undefined,
+  sqlState: undefined,
+  sqlMessage: undefined
+}
+Error: connect ECONNREFUSED ::1:3306
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:89:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/body-parser/lib/read.js:137:5 {
+  code: 'ECONNREFUSED',
+  errno: -111,
+  sql: undefined,
+  sqlState: undefined,
+  sqlMessage: undefined
+}
+[migration] skip users.link: connect ECONNREFUSED ::1:3306
+[migration] skip don_vi_cfg.cv: connect ECONNREFUSED ::1:3306
+[migration] skip don_vi_cfg.sdt: connect ECONNREFUSED ::1:3306
+Error: connect ECONNREFUSED ::1:3306
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:89:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/body-parser/lib/read.js:137:5 {
+  code: 'ECONNREFUSED',
+  errno: -111,
+  sql: undefined,
+  sqlState: undefined,
+  sqlMessage: undefined
+}
+Error: connect ECONNREFUSED ::1:3306
+    at PromisePool.execute (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/mysql2/lib/promise/pool.js:54:22)
+    at /home/bhoyxsqr/bhyt-system/server/app.js:89:31
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/layer.js:95:5)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/express/lib/router/index.js:280:10)
+    at /home/bhoyxsqr/nodevenv/bhyt-system/19/lib/node_modules/body-parser/lib/read.js:137:5 {
+  code: 'ECONNREFUSED',
+  errno: -111,
+  sql: undefined,
+  sqlState: undefined,
+  sqlMessage: undefined
+}
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+[mailer] Lỗi gửi email: No recipients defined
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+node:internal/modules/cjs/loader:1143
+  throw err;
+  ^
+
+Error: Cannot find module './db'
+Require stack:
+- /home/zivhnobs/bhyt-system/app.js
+- /usr/local/lsws/fcgi-bin/lsnode.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1140:15)
+    at Module._load (node:internal/modules/cjs/loader:981:27)
+    at Module.require (node:internal/modules/cjs/loader:1231:19)
+    at require (node:internal/modules/helpers:177:18)
+    at Object.<anonymous> (/home/zivhnobs/bhyt-system/app.js:8:17)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Module.require (node:internal/modules/cjs/loader:1231:19) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    '/home/zivhnobs/bhyt-system/app.js',
+    '/usr/local/lsws/fcgi-bin/lsnode.js'
+  ]
+}
+
+Node.js v18.20.8
+[mailer] Lỗi gửi email: No recipients defined
+[mailer] Lỗi gửi email: No recipients defined
+[mailer] Lỗi gửi email: No recipients defined
+[mailer] Lỗi gửi email: No recipients defined
+[mailer] Lỗi gửi email: No recipients defined
+Exception ignored in: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='utf-8'>
+BrokenPipeError: [Errno 32] Broken pipe
+Error: ENOENT: no such file or directory, stat '/home/zivhnobs/bhyt-system/public/index.html'
+Error: ENOENT: no such file or directory, stat '/home/zivhnobs/bhyt-system/public/index.html'
