@@ -1,4 +1,4 @@
-# BHYT SỞ NỘI VỤ SƠN LA — v4.1
+# BHYT SỞ NỘI VỤ SƠN LA — v4.2 (Hỗ trợ Đa năm & Chuyển tiếp năm)
 
 ## DEPLOY TRÊN CPANEL (PASSENGER)
 
@@ -73,3 +73,11 @@ find /usr /opt -name "node" 2>/dev/null | head -5
 ```
 Copy đường dẫn đó để chạy seed.
 
+
+---
+
+## QUY TRÌNH CHUYỂN TIẾP NĂM (VÍ DỤ 2026 → 2027)
+1. **Chốt & khóa năm cũ (Admin):** Trên Bảng điều khiển, chọn năm cũ → duyệt xong Quý IV → vào **Tổng hợp Quý** bấm **Chốt số liệu** → quay lại Bảng điều khiển bấm **🔒 Khóa cả năm** để khóa toàn bộ 4 quý năm cũ.
+2. **Cập nhật năm mặc định trên Server:** Trong cPanel File Manager, mở tệp `.env` và đổi `NAM=2027`, sau đó vào **Setup Node.js App → Restart** (ứng dụng sẽ tự động migrate thêm bảng `quy_chot` và cột `drive_links_by_year`).
+3. **Cập nhật Link Drive năm mới (Admin):** Chọn **Năm làm việc: 2027** trên thanh công cụ → vào **Quản lý Drive → Import CSV** để gán thư mục Google Drive năm 2027 cho 75 xã (link các năm cũ vẫn được giữ nguyên).
+4. **Kết chuyển số dư đầu năm (Tài khoản Xã):** Xã chọn **Năm làm việc: 2027**, vào **Nhập & Gửi biên bản** (Quý I, Tháng 1) và bấm **🔄 Kết chuyển từ T12/Quý IV/2026** để tự động chuyển số thẻ cuối kỳ (và số dư kinh phí NSNN nếu chọn chuyển tiếp) sang đầu kỳ Tháng 1/2027.
